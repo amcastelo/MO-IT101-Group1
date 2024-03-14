@@ -19,9 +19,9 @@ public class Grosswage extends Calculation{
     public static double gross;
     private static double hourly;
     public static double hours;
+    
     @Override
     public double calculate(){
-        Employee employeeinfo = new Employee();
         List<Employee> employees = EmployeeModelFromFile.getEmployeeModelList();       
             Scanner sc = new Scanner(System.in);
             

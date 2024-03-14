@@ -9,15 +9,20 @@ package com.mycompany.MotorPH;
  * @author Isaac
  */
 public class Philhealth extends Calculation {
+    
     private static double philhealthDeduction;
-    
-    @Override
-    public double calculate(){
+
+     public double calculate() {
         double gross = Grosswage.gross;
+        double PhilDed;
 
-            double PhilDed = (gross * .03)/2;
+        if (gross > 60000) { 
+            PhilDed = 1800;
+        } else {
+            PhilDed = (gross * 0.03) / 2; //
+        }
 
-            return philhealthDeduction = PhilDed;
+        philhealthDeduction = PhilDed; // Assign value to class-level variable
+        return philhealthDeduction;
     }
-    
 }

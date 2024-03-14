@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 // THIS CLASS REPRESENTS AN ATTENDANCE RECORD FOR AN EMPLOYEE
 public class AttendanceRecord {
+    
     private String name;
     private String id;
     private LocalDate date;

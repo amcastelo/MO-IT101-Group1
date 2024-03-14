@@ -17,7 +17,7 @@ public class Pagibig extends Calculation {
         double gross = Grosswage.gross;
         double pagibig;
 
-        if (gross > 1500.00) {
+        if (gross < 1500.00) {
             pagibig = gross * 0.03;
         } else {
             pagibig = gross * 0.04;     
