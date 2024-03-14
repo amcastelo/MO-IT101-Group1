@@ -14,10 +14,10 @@ import java.util.List;
  *
  * @author Isaac
  */
-    public class EmployeeModelFromFile extends EmployeeModel{
+    public class EmployeeModelFromFile{
 
         private static final String TXT_FILE_PATH = "src/main/resources/Data.txt";
-        public static final List<Employee> employees;
+        private static final List<Employee> employees;
         
     //INITIALIZE
     static {
@@ -73,8 +73,7 @@ import java.util.List;
     /**
      * @return the employees
      */
-    @Override
-    public List<Employee> getEmployeeModelList(){
+    public static List<Employee> getEmployeeModelList(){
         return employees;
     }
 }

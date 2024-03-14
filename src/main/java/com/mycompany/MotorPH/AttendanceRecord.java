@@ -8,9 +8,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class AttendanceRecord {
     private String name;
@@ -31,6 +28,8 @@ public class AttendanceRecord {
         this.timeIn = timeIn;
         this.timeOut = timeOut;
     }
+    
+    public AttendanceRecord(){}
 
     static {
         attendanceRecords = loadAttendance();
@@ -104,12 +103,12 @@ public class AttendanceRecord {
 
     // Output result
     if (totalHours > 0) {
-        System.out.printf("Employee ID: %s, Name: %s, Total Hours: %d%n",
-                targetEmployeeId, employeeName, totalHours);
+        //System.out.printf("Employee ID: %s, Name: %s, Total Hours: %d%n",
+                //targetEmployeeId, employeeName, totalHours);
     } else {
         totalHours = 160;
-        System.out.printf("Employee ID: %s, Name: %s, Total Hours: %d (Default)%n",
-                targetEmployeeId, employeeName, totalHours);
+        //System.out.printf("Employee ID: %s, Name: %s, Total Hours: %d (Default)%n",
+                //targetEmployeeId, employeeName, totalHours);
     }
 
     return totalHours;

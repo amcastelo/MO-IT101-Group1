@@ -6,17 +6,12 @@ import java.util.Scanner;
 
 public class MotorPHMain {
     
-    private static int platform = 1;
-    private static EmployeeModel employeeModel;
-    
-    private static Scanner sc = new Scanner(System.in);
-    private static Scanner inputPlatform = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     
     static ArrayList<AttendanceRecord> attendanceRecords = AttendanceRecord.getAttendanceRecords();
     
     public static void main(String[] args) {
         System.out.println("Current Working Directory: " + System.getProperty("user.dir"));
-        getDefaultEmployeeModel();
         menu();
     }
     
@@ -30,13 +25,12 @@ public class MotorPHMain {
         1: Show Employee Details
         2: Calculate Gross Wage
         3: Calculate Net Wage
-        4: Choose platform
         0: EXIT
         -------------------------
         CHOOSE: """);
         
         String detailSub;
-        String ch = sc.next();
+        String ch = scanner.next();
  
         switch (ch){
             case "1":
@@ -47,26 +41,21 @@ public class MotorPHMain {
                 2: All Employee Details
                 -------------------------
                 Choose: """);
-                detailSub = sc.next();
+                detailSub = scanner.next();
                 System.out.println("-------------------------");
                 menu(detailSub);
                 break;
                 
             case "2":
-                EmployeeSalaryGross.calculateGross();               
+                Calculation grosswage = new Grosswage();              
+                grosswage.calculate();
+                Grosswage.printGross();               
                 break;
                 
-            case "3":              
-                NetWageCalculation.calculateNetWage();
-                break;
-                
-            case "4":
-                platformSwitch();
-                break;
-                
-            case "5":
-                NetWageCalculation.printSSSDeductionRecords();
-                break;
+            case "3":
+                Calculation netwage = new Netwage();              
+                netwage.calculate();
+                break;               
                 
             case "0":
                 System.exit(0);
@@ -78,7 +67,7 @@ public class MotorPHMain {
         }
         
         System.out.println("back to menu? 1 = yes, 0 = no");
-        Resume = sc.nextInt();
+        Resume = scanner.nextInt();
         }while (Resume != 0);
     }
     
@@ -90,32 +79,8 @@ public class MotorPHMain {
         }
     }
     
-    //SWITCHES WHICH PLATFORM TO LOAD EMPLOYEE DATA FROM
-    private static void platformSwitch(){
-    System.out.println("Choose from which platform to load employee data:");
-    System.out.print("""
-                ----- Motor PH MENU -----
-
-                1: Load from File
-                2: Load from class
-                -------------------------
-                Choose: """);
-                    
-                String optionPlatform = inputPlatform.next();
-                    
-                    switch (optionPlatform) {
-                    case "1" -> platform = 1;
-                    
-                    case "2" -> platform = 2;
-                    
-                    default -> {}
-                    }
-                    
-                getDefaultEmployeeModel();            
-    }
-    
     private static void printEmpSelectList() {
-        List<Employee> employees = employeeModel.getEmployeeModelList();
+        List<Employee> employees = EmployeeModelFromFile.getEmployeeModelList();
         
         System.out.println("""
                    -------------------------
@@ -131,7 +96,7 @@ public class MotorPHMain {
         
         System.out.println("-------------------------");
         System.out.print("Enter Employee #: ");              
-        String empNum = sc.next();
+        String empNum = scanner.next();
         System.out.println("-------------------------");
         
         for (Employee employee : employees) {
@@ -148,22 +113,13 @@ public class MotorPHMain {
     }
     
     private static void allEmployeeList() {
-    List<Employee> employees = employeeModel.getEmployeeModelList();
+    List<Employee> employees = EmployeeModelFromFile.getEmployeeModelList();
                     
         for (Employee employee : employees) {
         System.out.println(employee);
         }
                 
         System.out.println("-------------------------");
-    }
-    
-    //SETS DEFAULT EMPLOYEE MODEL LOADED
-    private static void getDefaultEmployeeModel() {
-        if (platform == 1) {
-            employeeModel = new EmployeeModelFromFile();
-        } else {
-            employeeModel = new EmployeeModelFromClass();
-        }
     }
 }
 
