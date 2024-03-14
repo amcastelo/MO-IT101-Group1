@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+// THIS CLASS REPRESENTS AN ATTENDANCE RECORD FOR AN EMPLOYEE
 public class AttendanceRecord {
     private String name;
     private String id;
@@ -18,9 +19,10 @@ public class AttendanceRecord {
     private static final String TXT_FILE_PATH = "src/main/resources/AttendanceRecord5.txt";
 
     public static ArrayList<AttendanceRecord> attendanceRecords;
-
+    // FORMATTER FOR TIME
     private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-    
+
+    // THIS METHOD IS USED TO LOAD ATTENDANCE RECORDS FROM A TEXT FILE
     public AttendanceRecord(String name, String id, LocalDate date, LocalTime timeIn, LocalTime timeOut) {
         this.name = name;
         this.id = id;
@@ -42,8 +44,8 @@ public class AttendanceRecord {
         
         try (BufferedReader br = new BufferedReader(new FileReader(TXT_FILE_PATH))) {
             //FORMATS RECEIVED DATA TO FIT WHAT IS NEEDED
-            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-            DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy"); // FORMAT FOR DATE
+            DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");      // FORMAT FOR TIME
 
             // Read and skip the header
             br.readLine();
@@ -73,13 +75,13 @@ public class AttendanceRecord {
         return attendanceRecords;
     }   
     
-    //CALCULATES HOURS PER ATTENDANCE RECORD
+    // CALCULATES HOURS PER ATTENDANCE RECORD
     private static long calculateHoursWorked(LocalTime timeIn, LocalTime timeOut) {
         Duration duration = Duration.between(timeIn, timeOut);
         return duration.toHours();
     }
 
-    //CALCULATES HOURS WORKED ON A SPECIFIC MONTH OF AN EMPLOYEE
+    // TO CALCULATES HOURS WORKED ON A SPECIFIC MONTH OF AN EMPLOYEE
     public static long calculateTotalHoursAndPrint(int year, int month, String targetEmployeeId) {
     long totalHours = 0;
     String employeeName = "";
@@ -114,58 +116,38 @@ public class AttendanceRecord {
     return totalHours;
 }
     
-    /**
-     * @return the name
-     */
+    // RETURN THE NAME
     public String getName() {
         return name;
     }
 
-    /**
-     * @return the id
-     */
+    // RETURN THE ID
     public String getId() {
         return id;
     }
-
-    /**
-     * @return the date
-     */
+    // RETURN THE DATE
     public LocalDate getDate() {
         return date;
     }
-
-    /**
-     * @return the timeIn
-     */
+    // RETURN THE TimeIN
     public LocalTime getTimeIn() {
         return timeIn;
     }
-
-    /**
-     * @return the timeOut
-     */
+    // RETURN THE TimeOUT
     public LocalTime getTimeOut() {
         return timeOut;
     }
-
-    /**
-     * @return the TXT_FILE_PATH
-     */
+    // RETURN THE TXT_FILE_PATH
     public static String getTXT_FILE_PATH() {
         return TXT_FILE_PATH;
     }
-    
+    // SETTER FOR TimeIN
     public void setTimeIn(String timeIn) {
         this.timeIn = LocalTime.parse(timeIn, timeFormatter);
     }
-    
-    /**
-     * @return the attendanceRecords
-     */
+    // RETURN THE ATTENDANCE
     public static ArrayList<AttendanceRecord> getAttendanceRecords() {
         return attendanceRecords;
     }
-
 
 }

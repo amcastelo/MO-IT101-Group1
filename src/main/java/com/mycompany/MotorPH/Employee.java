@@ -59,7 +59,7 @@
                     grossSemiMonthlyRate, hourlyRateString);
         }   
 
-        //OVERLOADS TOSTRING TO PRINT IN ANOTHER FORMAT
+        //OVERLOADS TO STRING TO PRINT IN ANOTHER FORMAT
         public String toString(boolean targetEmpTrue) {
         return """
                 Employee ID: %s
@@ -124,9 +124,7 @@
             return (data.length > index) ? data[index] : "";
         }  
 
-        /**
-         * @return the employeeNumber
-         */
+        // GETTER METHOD FOR EMPLOYEE NUMBER, RETURNS THE BASIC SALARY OF THE EMPLOYEE
         public String getEmployeeNumber() {
             return employeeNumber;
         }
@@ -258,7 +256,7 @@
             return hourlyRate;
         }
 
-        /**
+        /** Sets the last name of the employee
          * @param lastName the lastName to set
          */
         public void setLastName(String lastName) {
@@ -278,7 +276,6 @@
         public void setHourlyRate(double hourlyRate) {
             this.hourlyRate = hourlyRate;
         }
-
 
 
     }
