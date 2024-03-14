@@ -12,25 +12,28 @@ public class Netwage extends Calculation{
     
     
     @Override
-    public double calculate(){              
+    public double calculate(){
+        //Initialize instances of each Java.class for usage. 
         Calculation sss = new SSS();
         Calculation philhealth = new Philhealth();
         Calculation pagibig = new Pagibig();
         Calculation withholdingTax = new WithholdingTax();
         Calculation grosswage = new Grosswage();
         Calculation latePenalty = new LatePenalty();
-
+        
+        //Call grosswatge calculation to prepare necessary values.
         grosswage.calculate();
-
+        
+        //Call the calculate() method of each class and assign their values to temporary variables.
         double sssData = sss.calculate();
         double philhealthData = philhealth.calculate();
         double pagibigData = pagibig.calculate();
         double lateData = latePenalty.calculate();
         double totalDeduction = sssData + philhealthData + pagibigData + lateData;
-
-        // Assuming taxableIncome and tax are instance variables in WithholdingTax
         
         double net = withholdingTax.calculate();
+        
+        //gets the value of taxableIncome and tax to be used for printing.
         double taxableIncome = WithholdingTax.taxableIncome;
         double tax = WithholdingTax.tax;
         System.out.println("""

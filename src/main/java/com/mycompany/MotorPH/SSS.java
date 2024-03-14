@@ -22,7 +22,7 @@ public class SSS extends Calculation {
     
     private static final String TXT_FILE_PATH = "src/main/resources/SSSCont1.txt";
     
-    private static final List<SSS> deductionRecords;
+    private static final List<SSS> sssDeductionRecords;
     
     private static double sssDeduction;
     
@@ -36,13 +36,30 @@ public class SSS extends Calculation {
     
     // INITIALIZE
     static {
-        deductionRecords = loadSssDeductions();
+        sssDeductionRecords = loadSssDeductions();
+    }
+    
+    @Override
+    public double calculate(){
+        double gross = Grosswage.gross;
+        
+        // Iterates through every compensation range to get the proper contribution.
+        for (SSS record : sssDeductionRecords) {
+            double[] range = parseSssCompensationRange(record.getCompensationRange());
+                if (gross > range[0] && gross <= range[1]) {
+
+                    sssDeduction = record.getContribution();
+                    break;  // Assuming that only one range should match, you can modify as needed
+                }
+            }
+        return sssDeduction;
     }
     
     // LOADS THE SSS CONTRIBUTION FILE AND SAVES IT AS NEW OBJECT IN OBJECT ARRAY LIST
     private static List<SSS> loadSssDeductions() {
         List<SSS> deductionRecord = new ArrayList<>();
-              
+        
+        // Tries to read the file and load data from it before closing.
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(TXT_FILE_PATH))) {
             bufferedReader.readLine();
             String line;
@@ -69,7 +86,8 @@ public class SSS extends Calculation {
 
     // Split the range by hyphen
     String[] rangeParts = compensationRange.split("-");
-
+    
+    // Checks if the compensation range is in the correct format.
     if (rangeParts.length != 2) {
         throw new IllegalArgumentException("Invalid compensation range format: " + compensationRange);
     }
@@ -83,21 +101,6 @@ public class SSS extends Calculation {
         throw new IllegalArgumentException("Invalid numeric format in compensation range: " + compensationRange, e);
     }
 }        
-    
-    @Override
-    public double calculate(){
-        double gross = Grosswage.gross;
-    
-        for (SSS record : deductionRecords) {
-            double[] range = parseSssCompensationRange(record.getCompensationRange());
-                if (gross > range[0] && gross <= range[1]) {
-
-                    sssDeduction = record.getContribution();
-                    break;  // Assuming that only one range should match, you can modify as needed
-                }
-            }
-        return sssDeduction;
-    }
     
     private static void handleException(Exception e) {
             e.printStackTrace();    

@@ -12,17 +12,19 @@ public class Philhealth extends Calculation {
     
     private static double philhealthDeduction;
 
+    @Override
      public double calculate() {
         double gross = Grosswage.gross;
         double PhilDed;
-
+        
+        //If gross is more than 60,000 limit philhealth deduction to 1,800 max
         if (gross > 60000) { 
             PhilDed = 1800;
         } else {
             PhilDed = (gross * 0.03) / 2; //
         }
 
-        philhealthDeduction = PhilDed; // Assign value to class-level variable
+        philhealthDeduction = PhilDed; 
         return philhealthDeduction;
     }
 }

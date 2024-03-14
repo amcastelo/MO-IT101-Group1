@@ -13,16 +13,17 @@ public class Pagibig extends Calculation {
     
     @Override
     public double calculate(){
-      
         double gross = Grosswage.gross;
         double pagibig;
 
-        if (gross < 1500.00) {
+        //Conditional statement for pagibig range.
+        if (gross > 1000.00 && gross <= 1500.00) {
             pagibig = gross * 0.03;
         } else {
             pagibig = gross * 0.04;     
         }
-
+        
+        //Maximum amount must not exceed 100.
         if (pagibig > 100) {
             pagibig = 100;
         }

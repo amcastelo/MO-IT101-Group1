@@ -23,7 +23,7 @@ public class AttendanceRecord {
     // FORMATTER FOR TIME
     private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
-    // THIS METHOD IS USED TO LOAD ATTENDANCE RECORDS FROM A TEXT FILE
+    // Constructor
     public AttendanceRecord(String name, String id, LocalDate date, LocalTime timeIn, LocalTime timeOut) {
         this.name = name;
         this.id = id;
@@ -38,13 +38,13 @@ public class AttendanceRecord {
         attendanceRecords = loadAttendance();
     }
     
-    //LOADS ATTENDANCE FROM A TXT USING TRY-CATCH TO ENSURE PROPER LOADING AND CLOSING
+    // LOADS ATTENDANCE FROM A TXT USING TRY-CATCH TO ENSURE PROPER LOADING AND CLOSING
     public static ArrayList<AttendanceRecord> loadAttendance() {
         ArrayList<AttendanceRecord> attendanceRecords = new ArrayList<>();
         
         
         try (BufferedReader br = new BufferedReader(new FileReader(TXT_FILE_PATH))) {
-            //FORMATS RECEIVED DATA TO FIT WHAT IS NEEDED
+            // FORMATS RECEIVED DATA TO FIT WHAT IS NEEDED
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy"); // FORMAT FOR DATE
             DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");      // FORMAT FOR TIME
 

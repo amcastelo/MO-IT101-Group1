@@ -15,7 +15,7 @@ public class MotorPHMain {
         menu();
     }
     
-    //PRINT MAIN MENU LOOP AFTER EVERY ACTION
+    // Print main menu
     private static void menu(){
         int Resume = 1;  
     do{ 
@@ -71,8 +71,9 @@ public class MotorPHMain {
         }while (Resume != 0);
     }
     
-    //OVERLOAD MENU FOR SUBMENU IN PRINTING EMPLOYEE DETAILS
-    private static void menu(String detailSub){       
+    // OVERLOAD MENU FOR SUBMENU IN PRINTING EMPLOYEE DETAILS
+    private static void menu(String detailSub){
+        // Option between all employee detail or one individual.
         switch (detailSub){
             case "1" -> printEmpSelectList();
             case "2" -> allEmployeeList();

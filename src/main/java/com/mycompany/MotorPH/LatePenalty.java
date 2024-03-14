@@ -17,21 +17,25 @@ public class LatePenalty extends Calculation{
     public double calculate(){
     double totalLateDeduction = 0;
     
-    
+    // Iterates through every attendance record.
     for (AttendanceRecord attendanceRecord : AttendanceRecord.attendanceRecords) {
-        // Check if the record is for the target employee
+        // Check if the record is for the target employee.
         if (attendanceRecord.getId().equals(Grosswage.getTargetEmployeeID())) {
             LocalDate recordDate = attendanceRecord.getDate();
-            int recordMonth = recordDate.getMonthValue(); // Month as an integer
+            int recordMonth = recordDate.getMonthValue(); // Month as an integer.
 
             // Check if the record is in the target month
             if (recordMonth == Grosswage.getTargetMonth()) {
                 // Assuming late penalty starts from 8:10 AM (490 minutes) onwards
                 final int lateThreshold = 490;
-
+                
+                // Gets time in.
                 LocalTime timeIn = attendanceRecord.getTimeIn();
+                
+                // converts hour into minutes then add it to the minutes. Sample: 8:40 is 480 + 40.
                 int lateTime = timeIn.getHour() * 60 + timeIn.getMinute();
-
+                
+                // Compares late time to threshold.
                 if (lateTime >= lateThreshold) {
                     // Calculate the per-minute equivalent of the hourly rate
                     double hourlyRate = Grosswage.getHourly();
@@ -44,7 +48,6 @@ public class LatePenalty extends Calculation{
                     totalLateDeduction += Math.max(0, deduction);
 
                 }
-                //System.out.println("Found target employee record: " + attendanceRecord.getId() + " on " + attendanceRecord.getDate());
 
                 System.out.println("Late ID" + Grosswage.getTargetEmployeeID());
                 System.out.println("month" + Grosswage.getTargetMonth());

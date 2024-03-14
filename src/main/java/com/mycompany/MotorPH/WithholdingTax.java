@@ -1,4 +1,4 @@
-    /*
+        /*
      * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
      * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
      */
@@ -13,15 +13,19 @@
         
         @Override
         public double calculate(){
+            //Initialize other deductions to call their calculate() method.
             Calculation sss = new SSS();
             Calculation philhealth = new Philhealth();
             Calculation pagibig = new Pagibig();           
             Calculation latePenalty = new LatePenalty();
             
+            //Ceclare a temporary variable storing the total deduction.
             double totalDeduction = sss.calculate() + philhealth.calculate() + pagibig.calculate() + latePenalty.calculate();
-
+            
+            //Compute taxable income by getting value of gross wage minus totalDeduction.
             taxableIncome = Grosswage.gross - totalDeduction;
-
+            
+            //Conditional statement to determine tax rate.
             if (taxableIncome <= 20832) {
                 tax = 0;
 
@@ -43,6 +47,7 @@
             
             double afterTax = taxableIncome - tax;
             
+            //returns net.
         return afterTax;
         }
         

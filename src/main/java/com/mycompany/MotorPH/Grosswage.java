@@ -25,7 +25,7 @@ public class Grosswage extends Calculation{
         List<Employee> employees = EmployeeModelFromFile.getEmployeeModelList();       
             Scanner sc = new Scanner(System.in);
             
-            
+            // Asks for User Input.
                 System.out.println("-------------------------");
                 System.out.print("Enter Employee #: ");              
                 targetEmployeeID = sc.next();
@@ -68,24 +68,6 @@ public class Grosswage extends Calculation{
             // If the loop completes without finding the employee ID
             System.out.println("Employee ID " + getEmployeeID() + " not found.");
         return gross;
-    }
-    
-    //PRINTS GROSS WAGE
-    public static void printGross(String employeeID, String employeeName, double hourlyRate, long hours, double gross){
-        System.out.println("""
-                ------------------------------------------           
-                Employee ID: %s
-                Name: %s
-                Hourly Rate: $%.2f
-                Total Hours: %s
-                Gross Wage: $%s
-                ------------------------------------------
-                """.formatted(employeeID, 
-                    employeeName,
-                    hourlyRate,
-                    hours, 
-                    decimalFormat.format(gross)
-                ));
     }
     
     public static void printGross(){
