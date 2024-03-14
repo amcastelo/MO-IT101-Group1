@@ -1,5 +1,5 @@
 MotorPH Payroll System
-Welcome to the MotorPH Payroll System
+* Welcome to the MotorPH Payroll System*
 
 Key Features
 1. Weekly Hours Calculation : Easily calculate the total hours worked by each employee
@@ -16,3 +16,17 @@ To run this MotorPH Payroll System, follow these simple steps:
 4. Click on the green "Code" button and copy the HTTPS or SSH URL of your forked repository.
 5. Open an IDE on your computer ( Intellij, Netbeans, Eclipse).
 6. And paste the URL that came from the repository you forked
+
+Members:
+1. Rachelle Paras
+2. Christian Noel Busalanan
+3. Genesis Jontilano
+4. John Sebastian Centeno
+5. Kyle Gabriel Tubera
+6. Lance Reineer Macawile
+7. Lerra Mae Dela Cruz
+8. Ma. Gwenyth Cardinoza
+9. Mark Alcantara
+10. Pamela Loraine Decastillo
+11. Samantha Blue Castillo
+  
