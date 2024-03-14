@@ -3,15 +3,18 @@ package com.mycompany.MotorPH;
 import java.util.Arrays;
 import java.util.List;
 
+// EXTENDS THE ABSTRACT CLASS EmployeeModel PROVIDING ACCESS TO ITS FUNCTIONALITY
 public class EmployeeModelFromClass extends EmployeeModel{
     
-    
+    // Override THE getEmployeeModelList
     @Override
     public List<Employee> getEmployeeModelList(){
         return employees;
-    }
+    }   // To return the list of employees
     
     public List<Employee> employees = Arrays.asList(
+                     /* Each employee object is initialized with an array of string.
+                        Employee data includes ID, name, birthdate, address, ETC. */
                      new Employee(new String[]{
                         "1",     
                         "Garcia",

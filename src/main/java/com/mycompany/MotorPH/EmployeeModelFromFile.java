@@ -15,11 +15,11 @@ import java.util.List;
  * @author Isaac
  */
     public class EmployeeModelFromFile extends EmployeeModel{
-
+        // Path to the text FILE CONTAINING EMPLOYEE DATA
         private static final String TXT_FILE_PATH = "src/main/resources/Data.txt";
         public static final List<Employee> employees;
         
-    //INITIALIZE
+    // INITIALIZE THE LIST OF EMPLOYEES BY LOADING DATA FROM THE TEXT FILE
     static {
             employees = loadEmployees();
     }
@@ -34,9 +34,10 @@ import java.util.List;
         try (BufferedReader reader = new BufferedReader(new FileReader(TXT_FILE_PATH))) {
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
-                
+                // PARSE THE LINE INTO INDIVIDUAL EMPLOYEE DATA FIELDS
                 List<String> employeeData = parseTxtLine(currentLine);
                 if (employeeData.size() >= 19) { // Assuming you expect 19 fields
+                    // IT WILL CREATE AN EMPLOYEE OBJECT FROM THE PARSED DATA AND ADD IT TO THE LIST
                     Employee employee = new Employee(employeeData.toArray(new String[0]));
                     employees.add(employee);
                 }
@@ -70,7 +71,7 @@ import java.util.List;
         return tokens;
     }      
 
-    /**
+    /* get the list of employee
      * @return the employees
      */
     @Override
