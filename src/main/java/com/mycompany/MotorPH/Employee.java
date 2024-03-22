@@ -21,7 +21,7 @@
         private String grossSemiMonthlyRate;
         protected double hourlyRate;
 
-        //CONSTRUCTOR
+        //CONSTRUCTOR TO INITIALIZE AN EMPLOYEE OBJECT WITH DATA
         public Employee(String[] data) {
             this.employeeNumber = getValue(data, 0);
             this.lastName = getValue(data, 1);
@@ -49,7 +49,7 @@
         }
         
 
-        //OVERRIDES DEFAULT TOSTRING TO PRINT EMPLOYEE DATA WITH SPACING
+        //OVERRIDES DEFAULT TO STRING TO PRINT EMPLOYEE DATA WITH SPACING
         @Override
         public String toString() {
             String hourlyRateString = (Double.isNaN(hourlyRate)) ? "Hourly Rate" : Double.toString(hourlyRate);

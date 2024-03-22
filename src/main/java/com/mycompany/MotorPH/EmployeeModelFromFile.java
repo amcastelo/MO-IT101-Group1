@@ -3,19 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.MotorPH;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Isaac
- */
+// This EmployeeModelFromFile class is responsible for loading Employee data from a text file
     public class EmployeeModelFromFile{
-
+        // Path to the text file containing Employee data
         private static String TXT_FILE_PATH = "src/main/resources/Data.txt";
         private static final List<Employee> employees;
         
@@ -23,8 +19,7 @@ import java.util.List;
     static {
             employees = loadEmployees();
     }
-    
-    
+
     //LOADS EMPLOYEE DATA
     public static List<Employee> loadEmployees() {
         //INITIALIZES NEW OBJECT ARRAY LIST
@@ -44,7 +39,8 @@ import java.util.List;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return employees;
+        return employees;      // This Return the list of loaded Employee objects
+
     }
     
     //PARSE STRING SURROUNDED WITH QUOTATION MARKS WITH COMMAS INSIDE IT
@@ -77,8 +73,8 @@ import java.util.List;
         return employees;
     }
 
-    /**
-     * @param aTXT_FILE_PATH the TXT_FILE_PATH to set
+    /** Set the path to the text file containing Employee data
+     *  @param aTXT_FILE_PATH the TXT_FILE_PATH to set
      */
     public static void setTXT_FILE_PATH(String aTXT_FILE_PATH) {
         TXT_FILE_PATH = aTXT_FILE_PATH;

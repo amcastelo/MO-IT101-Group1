@@ -4,10 +4,7 @@
  */
 package com.mycompany.MotorPH;
 
-/**
- *
- * @author Isaac
- */
+// Pagibig class extends Calculation and calculates the Pagibig deduction for an employee
 public class Pagibig extends Calculation {
     private static double pagibigDeduction;
     
@@ -16,17 +13,18 @@ public class Pagibig extends Calculation {
         double gross = Grosswage.gross;
         double pagibig;
 
-        //Conditional statement for pagibig range.
+        // Conditional statement to calculate the Pagibig deduction based on gross wage range
         if (gross > 1000.00 && gross <= 1500.00) {
             pagibig = gross * 0.03;
         } else {
             pagibig = gross * 0.04;     
         }
         
-        //Maximum amount must not exceed 100.
+        // Maximum amount must not exceed 100.
         if (pagibig > 100) {
             pagibig = 100;
         }
+        // To store the Pagibig deduction value and return it
         return pagibigDeduction = pagibig;
     }
     
