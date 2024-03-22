@@ -7,10 +7,7 @@ package com.mycompany.MotorPH;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-/**
- *
- * @author Isaac
- */
+// This LatePenalty class extends Calculation and calculates the late penalty deduction for an employee.
 public class LatePenalty extends Calculation{
     
     @Override

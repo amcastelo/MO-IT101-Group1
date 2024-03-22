@@ -21,7 +21,7 @@ public class Netwage extends Calculation{
         Calculation grosswage = new Grosswage();
         Calculation latePenalty = new LatePenalty();
         
-        //Call grosswatge calculation to prepare necessary values.
+        //Call grosswage calculation to prepare necessary values.
         grosswage.calculate();
         
         //Call the calculate() method of each class and assign their values to temporary variables.
@@ -36,6 +36,8 @@ public class Netwage extends Calculation{
         //gets the value of taxableIncome and tax to be used for printing.
         double taxableIncome = WithholdingTax.taxableIncome;
         double tax = WithholdingTax.tax;
+
+        // This is used to Print the net wage along with other details
         System.out.println("""
                 ------------------------------------------
                 Employee ID: %s
@@ -70,6 +72,6 @@ public class Netwage extends Calculation{
                 decimalFormat.format(tax),
                 decimalFormat.format(net)
         ));
-        return net;
+        return net;  // Return the net wage
     }
 }

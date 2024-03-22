@@ -4,10 +4,7 @@
      */
     package com.mycompany.MotorPH;
 
-    /**
-     *
-     * @author Isaac
-     */
+    // This WithholdingTax class extends Calculation and calculates the withholding tax for an employee
     public class WithholdingTax extends Calculation{
         public static double tax, taxableIncome, afterTax;
         
@@ -50,9 +47,4 @@
             // returns net.
         return afterTax;
         }
-        
-        
-        
-        
-
     }

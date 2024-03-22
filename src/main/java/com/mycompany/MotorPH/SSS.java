@@ -10,16 +10,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Isaac
- */
+// This SSS class extends Calculation and calculates the SSS deduction for an employee
 public class SSS extends Calculation {
     
     
     private String compensationRange;
     private double contribution;
-    
+    // This is the File path for SSS contribution data
     private static final String TXT_FILE_PATH = "src/main/resources/SSSCont1.txt";
     
     private static final List<SSS> sssDeductionRecords;
