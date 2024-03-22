@@ -17,7 +17,7 @@ public class AttendanceRecord {
     private LocalDate date;
     private LocalTime timeIn;
     private LocalTime timeOut;
-    private static final String TXT_FILE_PATH = "src/main/resources/AttendanceRecord5.txt";
+    private static String TXT_FILE_PATH = "src/main/resources/AttendanceRecord5.txt";
 
     public static ArrayList<AttendanceRecord> attendanceRecords;
     // FORMATTER FOR TIME
@@ -149,6 +149,13 @@ public class AttendanceRecord {
     // RETURN THE ATTENDANCE
     public static ArrayList<AttendanceRecord> getAttendanceRecords() {
         return attendanceRecords;
+    }
+
+    /**
+     * @param aTXT_FILE_PATH the TXT_FILE_PATH to set
+     */
+    public static void setTXT_FILE_PATH(String aTXT_FILE_PATH) {
+        TXT_FILE_PATH = aTXT_FILE_PATH;
     }
 
 }

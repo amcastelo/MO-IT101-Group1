@@ -16,7 +16,7 @@ import java.util.List;
  */
     public class EmployeeModelFromFile{
 
-        private static final String TXT_FILE_PATH = "src/main/resources/Data.txt";
+        private static String TXT_FILE_PATH = "src/main/resources/Data.txt";
         private static final List<Employee> employees;
         
     //INITIALIZE
@@ -75,5 +75,12 @@ import java.util.List;
      */
     public static List<Employee> getEmployeeModelList(){
         return employees;
+    }
+
+    /**
+     * @param aTXT_FILE_PATH the TXT_FILE_PATH to set
+     */
+    public static void setTXT_FILE_PATH(String aTXT_FILE_PATH) {
+        TXT_FILE_PATH = aTXT_FILE_PATH;
     }
 }
