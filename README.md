@@ -32,3 +32,5 @@ Members:
 12. Harvey Punsalan
 13. Adam Martel Castelo
   
+QA Test:
+https://docs.google.com/spreadsheets/d/1_M6RCo2xv08aVHIyJU6bMNUgCzWkgkeEBih2p7CfpWc/edit?usp=sharing
